@@ -1,0 +1,57 @@
+title: 'Board Members'
+sections:
+  main:
+    display: 'Board Members'
+    fields:
+      -
+        handle: intro
+        field:
+          type: textarea
+          display: 'Intro Text (optional)'
+          instructions: 'A short paragraph shown above the board members on the Board page.'
+      -
+        handle: members
+        field:
+          type: grid
+          display: Members
+          instructions: 'Add a row for each board member. Drag rows to reorder.'
+          mode: stacked
+          reorderable: true
+          add_row: 'Add board member'
+          fields:
+            -
+              handle: name
+              field:
+                type: text
+                display: Name
+                required: true
+                validate:
+                  - required
+            -
+              handle: position
+              field:
+                type: text
+                display: 'Position / Title'
+                instructions: 'For example: President, Vice President, Treasurer, Secretary.'
+                required: true
+                validate:
+                  - required
+            -
+              handle: email
+              field:
+                type: text
+                input_type: email
+                display: 'Email (optional)'
+            -
+              handle: photo
+              field:
+                type: assets
+                display: 'Photo (optional)'
+                container: images
+                max_files: 1
+                restrict: true
+            -
+              handle: bio
+              field:
+                type: textarea
+                display: 'Short Bio (optional)'

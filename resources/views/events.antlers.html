@@ -1,0 +1,40 @@
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <header class="max-w-3xl">
+        <h1 class="font-display text-4xl sm:text-5xl text-forest-900 tracking-tight text-balance">
+            {{ title }}
+        </h1>
+        {{ if content }}
+        <div class="mt-4 text-lg text-ink-700 leading-relaxed text-pretty">
+            {{ content }}
+        </div>
+        {{ /if }}
+    </header>
+
+    {{# Upcoming events — collection's date_behavior automatically hides past events #}}
+    <div class="mt-12">
+        <h2 class="font-display text-2xl text-forest-800 mb-6">Upcoming</h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {{ collection:events sort="date:asc" show_future="true"
+            show_today="true"
+            show_past="false" }}
+            {{ partial:partials/event_card }}
+            {{ if no_results }}
+            <div class="sm:col-span-2 lg:col-span-3 p-8 bg-white rounded-2xl border border-cream-200 text-center">
+                <p class="text-ink-700">No events are currently scheduled. Check back soon.</p>
+            </div>
+            {{ /if }}
+            {{ /collection:events }}
+        </div>
+        <h2 class="font-display text-2xl text-forest-800 mb-6 mt-12">Past</h2>
+        <div class="grid">
+            {{ collection:events sort="date:desc" date:is_before="{now}" }}
+            {{ partial:partials/past_event_card }}
+            {{ if no_results }}
+            <div class="sm:col-span-2 lg:col-span-3 p-8 bg-white rounded-2xl border border-cream-200 text-center">
+                <p class="text-ink-700">No past events found.</p>
+            </div>
+            {{ /if }}
+            {{ /collection:events }}
+        </div>
+    </div>
+</section>

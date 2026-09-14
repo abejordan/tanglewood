@@ -1,0 +1,16 @@
+tree:
+  -
+    id: 8e4c8348-e5e2-43df-8318-573901549b9f
+    entry: page-home
+  -
+    id: 4b952a59-03d6-4e88-b928-f1f2abe36901
+    entry: page-newsletters
+  -
+    id: b67de67d-ea59-409e-83a4-688d5891ec4e
+    entry: page-events
+  -
+    id: 375fd587-60ff-4760-b4db-05c0e88e367c
+    entry: page-board
+  -
+    id: 5729f6d5-640d-4403-b97a-165db73ac211
+    entry: page-get-involved

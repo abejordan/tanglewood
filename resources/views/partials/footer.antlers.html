@@ -1,0 +1,54 @@
+{{ site_settings }}
+<footer class="mt-24 border-t border-cream-200 bg-cream-100/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid gap-10 md:grid-cols-3">
+
+            <div>
+                <p class="font-display text-xl text-forest-800">{{ name }}</p>
+                {{ if footer_text }}
+                    <p class="mt-2 text-ink-500 text-[15px] leading-relaxed">{{ footer_text }}</p>
+                {{ /if }}
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-wide text-forest-700">Contact</p>
+                <ul class="mt-3 space-y-2 text-[15px] text-ink-700">
+                    {{ if contact_email }}
+                        <li>
+                            <a class="hover:text-forest-700 underline decoration-forest-600/30 hover:decoration-forest-600 underline-offset-4" href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+                        </li>
+                    {{ /if }}
+                    {{ if mailing_address }}
+                        <li class="whitespace-pre-line text-ink-500">{{ mailing_address }}</li>
+                    {{ /if }}
+                </ul>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-wide text-forest-700">Quick Links</p>
+                <ul class="mt-3 text-[15px] flex flex-wrap gap-4">
+                    {{ nav:main }}
+                        <li>
+                            <a class="text-ink-700 hover:text-forest-700 underline decoration-forest-600/20 hover:decoration-forest-600 underline-offset-4" href="{{ url }}">{{ title }}</a>
+                        </li>
+                    {{ /nav:main }}
+                    {{ if facebook_url }}
+                        <li>
+                            <a class="text-ink-700 hover:text-forest-700 underline decoration-forest-600/20 hover:decoration-forest-600 underline-offset-4" href="{{ facebook_url }}" rel="noopener">Facebook</a>
+                        </li>
+                    {{ /if }}
+                    {{ if nextdoor_url }}
+                        <li>
+                            <a class="text-ink-700 hover:text-forest-700 underline decoration-forest-600/20 hover:decoration-forest-600 underline-offset-4" href="{{ nextdoor_url }}" rel="noopener">Nextdoor</a>
+                        </li>
+                    {{ /if }}
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-cream-200 text-sm text-ink-500">
+            &copy; {{ now format="Y" }} {{ name }}. All rights reserved.
+        </div>
+    </div>
+</footer>
+{{ /site_settings }}

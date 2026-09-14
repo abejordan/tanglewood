@@ -1,0 +1,28 @@
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <header class="max-w-3xl">
+        <h1 class="font-display text-4xl sm:text-5xl text-forest-900 tracking-tight text-balance">
+            {{ title }}
+        </h1>
+        {{ board }}
+            {{ if intro }}
+                <p class="mt-4 text-lg text-ink-700 leading-relaxed text-pretty">{{ intro }}</p>
+            {{ /if }}
+        {{ /board }}
+    </header>
+
+    <div class="mt-12">
+        {{ board }}
+            {{ if members }}
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {{ members }}
+                        {{ partial:partials/board_member_card }}
+                    {{ /members }}
+                </div>
+            {{ else }}
+                <div class="p-8 bg-white rounded-2xl border border-cream-200 text-center">
+                    <p class="text-ink-700">Board members haven't been added yet. Add them in the Board global.</p>
+                </div>
+            {{ /if }}
+        {{ /board }}
+    </div>
+</section>

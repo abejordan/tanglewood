@@ -1,0 +1,75 @@
+title: Home Page
+sections:
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          display: Title
+          instructions: 'The internal name of this page (not shown on the site).'
+          required: true
+          validate:
+            - required
+      -
+        handle: hero_headline
+        field:
+          type: text
+          display: 'Welcome Headline'
+          instructions: 'The big welcome message at the top of the home page.'
+      -
+        handle: hero_intro
+        field:
+          type: textarea
+          display: 'Welcome Intro'
+          instructions: 'A short, friendly paragraph introducing the neighborhood.'
+  get_involved:
+    display: 'Get Involved Section'
+    fields:
+      -
+        handle: get_involved_headline
+        field:
+          type: text
+          display: Headline
+      -
+        handle: get_involved_text
+        field:
+          type: textarea
+          display: 'Short Description'
+          instructions: 'A sentence or two encouraging residents to participate.'
+  pay_dues:
+    display: 'Pay Dues Section'
+    fields:
+      -
+        handle: pay_dues_headline
+        field:
+          type: text
+          display: Headline
+      -
+        handle: pay_dues_text
+        field:
+          type: textarea
+          display: 'Short Description'
+          instructions: 'A sentence or two about paying dues online. The link itself is set in Site Settings.'
+  seo:
+    display: SEO
+    fields:
+      -
+        handle: meta_title
+        field:
+          type: text
+          display: 'SEO Title (optional)'
+      -
+        handle: meta_description
+        field:
+          type: textarea
+          display: 'SEO Description (optional)'
+  sidebar:
+    display: Options
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true

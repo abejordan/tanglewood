@@ -2,3 +2,11 @@ name: Tanglewood
 super: true
 id: 4a7e6f05-2c1a-4df2-8f5e-879839082c20
 password_hash: $2y$12$HE/v8ypSaRCy3WBOMzCBVuyrF14ERZKnv9tAdpFPJ21COlO9F8fP6
+preferences:
+  collections:
+    newsletters:
+      view: list
+    events:
+      view: list
+    pages:
+      view: tree

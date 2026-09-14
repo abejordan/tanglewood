@@ -1,0 +1,52 @@
+title: Page
+sections:
+  main:
+    display: Page
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          display: Title
+          required: true
+          validate:
+            - required
+      -
+        handle: content
+        field:
+          type: markdown
+          display: 'Page Content'
+          instructions: 'The main content of the page. You can add headings, lists, links, and images.'
+          container: images
+  seo:
+    display: SEO
+    fields:
+      -
+        handle: meta_title
+        field:
+          type: text
+          display: 'SEO Title (optional)'
+          instructions: 'What shows up in Google and browser tabs. Leave blank to use the page title.'
+      -
+        handle: meta_description
+        field:
+          type: textarea
+          display: 'SEO Description (optional)'
+          instructions: 'A short summary shown in search results. Leave blank to use the site description.'
+  sidebar:
+    display: Options
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true

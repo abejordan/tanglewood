@@ -1,0 +1,13 @@
+{{# Params: eyebrow (optional), title, description (optional), align (optional: left|center) #}}
+{{ align_class = (align == 'center') ? 'text-center' : 'text-left' }}
+<div class="max-w-2xl {{ if align == 'center' }}mx-auto{{ /if }} {{ align_class }}">
+    {{ if eyebrow }}
+        <p class="text-sm font-semibold uppercase tracking-wide text-forest-600">{{ eyebrow }}</p>
+    {{ /if }}
+    <h2 class="mt-2 font-display text-3xl sm:text-4xl text-forest-900 tracking-tight text-balance">
+        {{ title }}
+    </h2>
+    {{ if description }}
+        <p class="mt-3 text-lg text-ink-700 text-pretty">{{ description }}</p>
+    {{ /if }}
+</div>

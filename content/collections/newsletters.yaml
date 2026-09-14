@@ -1,0 +1,10 @@
+title: Newsletters
+date: true
+date_behavior:
+  past: public
+  future: public
+sort_field: date
+sort_dir: desc
+template: default
+blueprints:
+  - newsletter

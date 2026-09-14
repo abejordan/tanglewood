@@ -1,0 +1,18 @@
+{{# SEO meta tags. Falls back gracefully to page title + site settings. #}}
+{{ site_settings }}
+    {{ page_title = (meta_title ?: title) ?: name }}
+    {{ page_description = (meta_description ?: tagline) ?: '' }}
+
+    <title>{{ page_title | sanitize }} — {{ name | sanitize }}</title>
+    {{ if page_description }}
+        <meta name="description" content="{{ page_description | sanitize }}">
+    {{ /if }}
+
+    <meta property="og:site_name" content="{{ name | sanitize }}">
+    <meta property="og:title" content="{{ page_title | sanitize }}">
+    {{ if page_description }}
+        <meta property="og:description" content="{{ page_description | sanitize }}">
+    {{ /if }}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ permalink }}">
+{{ /site_settings }}

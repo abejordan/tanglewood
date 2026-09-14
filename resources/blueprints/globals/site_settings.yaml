@@ -1,0 +1,68 @@
+title: 'Site Settings'
+sections:
+  main:
+    display: 'Neighborhood Info'
+    fields:
+      -
+        handle: name
+        field:
+          type: text
+          display: 'Neighborhood Name'
+          instructions: 'Shown in the header, footer, and page titles.'
+          required: true
+          validate:
+            - required
+      -
+        handle: tagline
+        field:
+          type: text
+          display: 'Short Tagline / Description'
+          instructions: 'A brief description used in search results and social sharing.'
+      -
+        handle: footer_text
+        field:
+          type: textarea
+          display: 'Footer Text'
+          instructions: 'Shown at the bottom of every page.'
+  contact:
+    display: Contact
+    fields:
+      -
+        handle: contact_email
+        field:
+          type: text
+          input_type: email
+          display: 'Contact Email'
+      -
+        handle: mailing_address
+        field:
+          type: textarea
+          display: 'Mailing Address (optional)'
+  dues:
+    display: 'Dues Payment'
+    fields:
+      -
+        handle: dues_url
+        field:
+          type: text
+          input_type: url
+          display: 'Dues Payment URL'
+          instructions: 'The external link where residents pay their dues. This is used by every "Pay Dues" button on the site.'
+          required: true
+          validate:
+            - required
+  social:
+    display: 'Social Links (optional)'
+    fields:
+      -
+        handle: facebook_url
+        field:
+          type: text
+          input_type: url
+          display: 'Facebook URL'
+      -
+        handle: nextdoor_url
+        field:
+          type: text
+          input_type: url
+          display: 'Nextdoor URL'

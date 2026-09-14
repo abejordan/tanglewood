@@ -1,0 +1,48 @@
+title: Newsletter
+sections:
+  main:
+    display: Newsletter
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          display: Title
+          instructions: 'For example: "October 2026 Newsletter"'
+          required: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          type: date
+          display: 'Issue Date'
+          instructions: 'The month/year this newsletter was published. The newest issue date automatically becomes the current newsletter.'
+          time_enabled: false
+          required: true
+          validate:
+            - required
+      -
+        handle: description
+        field:
+          type: textarea
+          display: 'Short Description'
+          instructions: 'Optional. A sentence or two describing what''s in this issue.'
+      -
+        handle: pdf
+        field:
+          type: assets
+          display: 'Newsletter PDF'
+          instructions: 'Upload the newsletter PDF. Residents will click "Download PDF" to view it.'
+          container: documents
+          max_files: 1
+          allow_uploads: true
+          restrict: false
+  sidebar:
+    display: Options
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true

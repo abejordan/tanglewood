@@ -1,0 +1,71 @@
+title: Event
+sections:
+  main:
+    display: Event
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          display: 'Event Title'
+          instructions: 'For example: "Fall Neighborhood Picnic"'
+          required: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          type: date
+          display: 'Start Date & Time'
+          instructions: 'When does the event start? Leave the time blank for all-day events.'
+          time_enabled: true
+          time_required: false
+          required: true
+          validate:
+            - required
+      -
+        handle: end
+        field:
+          type: date
+          display: 'End Date & Time (optional)'
+          instructions: 'Only fill this in if the event runs across multiple days or you want to show a clear end time.'
+          time_enabled: true
+          time_required: false
+      -
+        handle: location
+        field:
+          type: text
+          display: Location
+          instructions: 'For example: "Tanglewood Community Park" or "123 Main St. Clubhouse". Optional.'
+      -
+        handle: description
+        field:
+          type: markdown
+          display: Description
+          instructions: 'A short description of the event. Keep it brief and friendly.'
+          container: images
+      -
+        handle: external_url
+        field:
+          type: text
+          input_type: url
+          display: 'External Link (optional)'
+          instructions: 'A website or RSVP link, if there is one. For example, an Eventbrite page.'
+      -
+        handle: featured_image
+        field:
+          type: assets
+          display: 'Featured Image (optional)'
+          instructions: 'A photo to show on the event card. Optional.'
+          container: images
+          max_files: 1
+          allow_uploads: true
+          restrict: true
+  sidebar:
+    display: Options
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true

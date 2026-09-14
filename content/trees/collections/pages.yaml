@@ -1,3 +1,11 @@
 tree:
   -
-    entry: home
+    entry: page-home
+  -
+    entry: page-newsletters
+  -
+    entry: page-events
+  -
+    entry: page-board
+  -
+    entry: page-get-involved
