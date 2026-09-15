@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Tags\EventsUpcoming;
 use Illuminate\Support\ServiceProvider;
+use Statamic\Statamic;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Statamic::tag(EventsUpcoming::class);
     }
 }

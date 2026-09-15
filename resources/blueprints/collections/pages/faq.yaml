@@ -1,0 +1,84 @@
+title: FAQ
+sections:
+  main:
+    display: FAQ
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          display: Title
+          required: true
+          validate:
+            - required
+      -
+        handle: content
+        field:
+          type: markdown
+          display: 'Intro Text (optional)'
+          instructions: 'A short intro shown above the questions.'
+          container: images
+      -
+        handle: faqs
+        field:
+          type: replicator
+          display: 'Frequently Asked Questions'
+          instructions: 'Add one entry per question. Group them into categories if you like.'
+          collapse: accordion
+          sets:
+            main:
+              display: Content
+              sets:
+                category:
+                  display: 'Category Heading'
+                  instructions: 'A section heading (e.g. "Dues", "Events") that groups the questions below it.'
+                  fields:
+                    -
+                      handle: heading
+                      field:
+                        type: text
+                        display: 'Category Name'
+                        required: true
+                        validate:
+                          - required
+                question:
+                  display: 'Question & Answer'
+                  fields:
+                    -
+                      handle: question
+                      field:
+                        type: text
+                        display: Question
+                        required: true
+                        validate:
+                          - required
+                    -
+                      handle: answer
+                      field:
+                        type: markdown
+                        display: Answer
+                        required: true
+                        container: images
+                        validate:
+                          - required
+  seo:
+    display: SEO
+    fields:
+      -
+        handle: meta_title
+        field:
+          type: text
+          display: 'SEO Title (optional)'
+      -
+        handle: meta_description
+        field:
+          type: textarea
+          display: 'SEO Description (optional)'
+  sidebar:
+    display: Options
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true

@@ -1,0 +1,52 @@
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <header class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-forest-600">Good to know</p>
+        <h1 class="mt-2 font-display text-4xl sm:text-5xl text-forest-900 tracking-tight text-balance">
+            {{ title }}
+        </h1>
+        {{ if content }}
+            <div class="mt-4 text-lg text-ink-700 leading-relaxed text-pretty">
+                {{ content }}
+            </div>
+        {{ /if }}
+    </header>
+
+    {{ if faqs }}
+        <div class="mt-12 space-y-10">
+            {{ faqs }}
+                {{ if type == 'category' }}
+                    <h2 class="font-display text-2xl text-forest-800 border-b border-cream-200 pb-3 mt-6 first:mt-0">
+                        {{ heading }}
+                    </h2>
+                {{ elseif type == 'question' }}
+                    <details class="group bg-white rounded-2xl border border-cream-200 shadow-sm open:shadow-md transition-shadow">
+                        <summary class="cursor-pointer list-none flex items-start justify-between gap-4 p-5 sm:p-6 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-600">
+                            <span class="font-display text-lg sm:text-xl text-forest-900 leading-snug">
+                                {{ question }}
+                            </span>
+                            <svg class="w-5 h-5 mt-1 flex-shrink-0 text-forest-600 transition-transform group-open:rotate-45" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path d="M10 4a.75.75 0 0 1 .75.75v4.5h4.5a.75.75 0 0 1 0 1.5h-4.5v4.5a.75.75 0 0 1-1.5 0v-4.5h-4.5a.75.75 0 0 1 0-1.5h4.5v-4.5A.75.75 0 0 1 10 4Z"/>
+                            </svg>
+                        </summary>
+                        <div class="px-5 sm:px-6 pb-6 -mt-1 prose-neighborhood text-[15px]">
+                            {{ answer }}
+                        </div>
+                    </details>
+                {{ /if }}
+            {{ /faqs }}
+        </div>
+    {{ else }}
+        <div class="mt-12 p-8 bg-white rounded-2xl border border-cream-200 text-center">
+            <p class="text-ink-700">No questions have been added yet.</p>
+        </div>
+    {{ /if }}
+
+    {{ site_settings }}
+        {{ if contact_email }}
+            <p class="mt-12 text-ink-700 text-[15px]">
+                Still have a question? Email
+                <a href="mailto:{{ contact_email }}" class="text-forest-700 hover:text-forest-800 underline decoration-forest-600/30 hover:decoration-forest-600 underline-offset-4">{{ contact_email }}</a>.
+            </p>
+        {{ /if }}
+    {{ /site_settings }}
+</section>

@@ -14,3 +14,9 @@ tree:
   -
     id: 5729f6d5-640d-4403-b97a-165db73ac211
     entry: page-get-involved
+  -
+    id: 8c4f8f8b-2a4f-4a67-9c53-9b3a2c1e5f11
+    entry: page-faq
+  -
+    id: d1a92a77-0e8e-4e9a-9bde-6f8a3d7c1b22
+    entry: page-dues

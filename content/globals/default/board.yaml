@@ -1,34 +1,79 @@
-intro: 'The neighborhood board is volunteer based and always looking for more support.'
-members:
+intro: 'Our board is made up of volunteer neighbors who serve on committees to keep Tanglewood a great place to live. Everyone is welcome — reach out to any committee below if you''d like to help.'
+committees:
   -
-    id: qLe6GFjH
-    name: 'Ali Herman'
-    position: President
+    id: cmt-executive
+    type: committee
+    enabled: true
+    name: 'Executive Board'
+    description: 'The neighborhood association officers.'
+    responsibilities: "- Set the direction of the neighborhood association\n- Oversee the annual budget and dues\n- Chair the annual meeting and quarterly board meetings\n- Support and coordinate the other committees"
+    how_to_join: "Officer roles are filled through elections at the annual meeting. If you're interested in running, email the board."
+    members:
+      -
+        id: qLe6GFjH
+        name: 'Ali Herman'
+        position: President
+      -
+        id: u2pkFLPh4xOVsx3bEHD2G
+        name: 'Mike Evans'
+        position: Treasurer
+      -
+        id: X1FQBUpC
+        name: 'Dave Wene'
+        position: 'Block Captain'
+      -
+        id: qamuAqKQ
+        name: 'Andrew Kelly'
+        position: 'Block Captain'
+      -
+        id: Xb0p9ZTc12DNYfZN_Q69l
+        name: 'Ross Erlenbaugh'
+        position: 'Block Captain'
+      -
+        id: YRd4UrLV
+        name: 'Danielle Jennings'
+        position: 'Member at Large'
+      -
+        id: tuQjBxolPDzTzjtuz4a3d
+        name: 'Taylor Herman'
+        position: 'Member at Large'
   -
-    id: ceApjlUE
-    name: 'Katie Jordan'
-    position: Communications
+    id: cmt-special-projects
+    type: committee
+    enabled: true
+    name: 'Special Projects & Events'
+    description: 'Plans neighborhood gatherings and social activities and supports access to the Nickel Plate Trail.'
+    responsibilities: "- Plan and run neighborhood events (picnics, holiday gathering, etc.)\n- Coordinate volunteers and supplies\n- Support neighborhood access to the Nickel Plate Trail"
+    how_to_join: 'Email the board and let us know you''d like to help. Even helping with one event makes a difference.'
+    members: {  }
   -
-    id: u2pkFLPh4xOVsx3bEHD2G
-    name: 'Mike Evans'
-    position: Treasurer
+    id: cmt-communications
+    type: committee
+    enabled: true
+    name: Communications
+    description: 'Keeps neighbors informed through the newsletter, social media, and website.'
+    responsibilities: "- Publish the neighborhood newsletter\n- Manage social media and the website\n- Share event reminders and important updates"
+    how_to_join: 'If you enjoy writing, photography, or social media, we''d love your help. Email the board.'
+    members:
+      -
+        id: ceApjlUE
+        name: 'Katie Jordan'
+        position: 'Communications Chair'
   -
-    id: X1FQBUpC
-    name: 'Dave Wene'
-    position: 'Block Captain'
+    id: cmt-grounds
+    type: committee
+    enabled: true
+    name: 'Grounds Crew'
+    description: 'Keeps our entrance and shared spaces looking their best.'
+    responsibilities: "- Maintain the neighborhood entrance and common areas\n- Coordinate seasonal cleanups and plantings\n- Recommend improvements to shared spaces"
+    how_to_join: 'A few hours a season is all it takes. Email the board if you''d like to pitch in.'
+    members: {  }
   -
-    id: qamuAqKQ
-    name: 'Andrew Kelly'
-    position: 'Block Captain'
-  -
-    id: YRd4UrLV
-    name: 'Danielle Jennings'
-    position: 'Member at Large'
-  -
-    id: Xb0p9ZTc12DNYfZN_Q69l
-    name: 'Ross Erlenbaugh'
-    position: 'Block Captain'
-  -
-    id: tuQjBxolPDzTzjtuz4a3d
-    name: 'Taylor Herman'
-    position: 'Member at large'
+    id: cmt-outreach
+    type: committee
+    enabled: true
+    name: 'Outreach & Membership'
+    description: 'Welcomes new residents and encourages participation.'
+    responsibilities: "- Welcome new residents to the neighborhood\n- Encourage participation in events and committees\n- Assist the treasurer with managing neighborhood funds"
+    how_to_join: 'If you like meeting neighbors and helping people feel at home, this is a great fit. Email the board.'
+    members: {  }

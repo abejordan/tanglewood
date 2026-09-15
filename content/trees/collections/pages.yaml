@@ -9,3 +9,7 @@ tree:
     entry: page-board
   -
     entry: page-get-involved
+  -
+    entry: page-faq
+  -
+    entry: page-dues

@@ -10,17 +10,58 @@
         {{ /board }}
     </header>
 
-    <div class="mt-12">
+    <div class="mt-12 space-y-16">
         {{ board }}
-            {{ if members }}
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {{ members }}
-                        {{ partial:partials/board_member_card }}
-                    {{ /members }}
-                </div>
+            {{ if committees }}
+                {{ committees }}
+                    <section class="scroll-mt-24" id="{{ name | slugify }}">
+                        <div class="border-b border-cream-200 pb-4">
+                            <h2 class="font-display text-3xl text-forest-900 tracking-tight">{{ name }}</h2>
+                            {{ if description }}
+                                <p class="mt-2 text-lg text-ink-700 leading-relaxed text-pretty max-w-3xl">{{ description }}</p>
+                            {{ /if }}
+                        </div>
+
+                        {{ if responsibilities || how_to_join }}
+                            <div class="mt-6 grid gap-6 md:grid-cols-2">
+                                {{ if responsibilities }}
+                                    <div class="bg-white rounded-2xl border border-cream-200 p-6">
+                                        <p class="text-sm font-semibold uppercase tracking-wide text-forest-700">Responsibilities</p>
+                                        <div class="prose-neighborhood mt-3 text-[15px]">
+                                            {{ responsibilities }}
+                                        </div>
+                                    </div>
+                                {{ /if }}
+                                {{ if how_to_join }}
+                                    <div class="bg-forest-50 rounded-2xl border border-forest-100 p-6">
+                                        <p class="text-sm font-semibold uppercase tracking-wide text-forest-700">How to Join</p>
+                                        <div class="prose-neighborhood mt-3 text-[15px]">
+                                            {{ how_to_join }}
+                                        </div>
+                                    </div>
+                                {{ /if }}
+                            </div>
+                        {{ /if }}
+
+                        {{ if members }}
+                            <div class="mt-8">
+                                <p class="text-sm font-semibold uppercase tracking-wide text-forest-700 mb-4">Current Members</p>
+                                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                    {{ members }}
+                                        {{ partial:partials/board_member_card }}
+                                    {{ /members }}
+                                </div>
+                            </div>
+                        {{ else }}
+                            <div class="mt-8 p-6 bg-white rounded-2xl border border-cream-200 border-dashed text-center">
+                                <p class="text-ink-500">No members listed yet — this committee is looking for volunteers!</p>
+                            </div>
+                        {{ /if }}
+                    </section>
+                {{ /committees }}
             {{ else }}
                 <div class="p-8 bg-white rounded-2xl border border-cream-200 text-center">
-                    <p class="text-ink-700">Board members haven't been added yet. Add them in the Board global.</p>
+                    <p class="text-ink-700">Committees haven't been added yet. Add them in the Board global.</p>
                 </div>
             {{ /if }}
         {{ /board }}

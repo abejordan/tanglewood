@@ -7,3 +7,4 @@ template: default
 blueprints:
   - page
   - home
+  - faq

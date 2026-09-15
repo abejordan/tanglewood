@@ -10,30 +10,30 @@
         {{ /if }}
     </header>
 
-    {{# Upcoming events — collection's date_behavior automatically hides past events #}}
+    {{# Upcoming events — recurring events are expanded to their next occurrences by the events_upcoming tag #}}
     <div class="mt-12">
         <h2 class="font-display text-2xl text-forest-800 mb-6">Upcoming</h2>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {{ collection:events sort="date:asc" show_future="true"
-            show_today="true"
-            show_past="false" }}
-            {{ partial:partials/event_card }}
-            {{ if no_results }}
-            <div class="sm:col-span-2 lg:col-span-3 p-8 bg-white rounded-2xl border border-cream-200 text-center">
-                <p class="text-ink-700">No events are currently scheduled. Check back soon.</p>
-            </div>
-            {{ /if }}
-            {{ /collection:events }}
+            {{ events_upcoming limit="30" window_days="365" }}
+                {{ if no_results }}
+                    <div class="sm:col-span-2 lg:col-span-3 p-8 bg-white rounded-2xl border border-cream-200 text-center">
+                        <p class="text-ink-700">No events are currently scheduled. Check back soon.</p>
+                    </div>
+                {{ else }}
+                    {{ partial:partials/event_card }}
+                {{ /if }}
+            {{ /events_upcoming }}
         </div>
+
         <h2 class="font-display text-2xl text-forest-800 mb-6 mt-12">Past</h2>
         <div class="grid">
             {{ collection:events sort="date:desc" date:is_before="{now}" }}
-            {{ partial:partials/past_event_card }}
-            {{ if no_results }}
-            <div class="sm:col-span-2 lg:col-span-3 p-8 bg-white rounded-2xl border border-cream-200 text-center">
-                <p class="text-ink-700">No past events found.</p>
-            </div>
-            {{ /if }}
+                {{ partial:partials/past_event_card }}
+                {{ if no_results }}
+                    <div class="sm:col-span-2 lg:col-span-3 p-8 bg-white rounded-2xl border border-cream-200 text-center">
+                        <p class="text-ink-700">No past events found.</p>
+                    </div>
+                {{ /if }}
             {{ /collection:events }}
         </div>
     </div>

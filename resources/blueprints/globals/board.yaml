@@ -1,57 +1,97 @@
-title: 'Board Members'
+title: 'Board & Committees'
 sections:
   main:
-    display: 'Board Members'
+    display: 'Board & Committees'
     fields:
       -
         handle: intro
         field:
           type: textarea
           display: 'Intro Text (optional)'
-          instructions: 'A short paragraph shown above the board members on the Board page.'
+          instructions: 'A short paragraph shown above the committees on the Board page.'
       -
-        handle: members
+        handle: committees
         field:
-          type: grid
-          display: Members
-          instructions: 'Add a row for each board member. Drag rows to reorder.'
-          mode: stacked
-          reorderable: true
-          add_row: 'Add board member'
-          fields:
-            -
-              handle: name
-              field:
-                type: text
-                display: Name
-                required: true
-                validate:
-                  - required
-            -
-              handle: position
-              field:
-                type: text
-                display: 'Position / Title'
-                instructions: 'For example: President, Vice President, Treasurer, Secretary.'
-                required: true
-                validate:
-                  - required
-            -
-              handle: email
-              field:
-                type: text
-                input_type: email
-                display: 'Email (optional)'
-            -
-              handle: photo
-              field:
-                type: assets
-                display: 'Photo (optional)'
-                container: images
-                max_files: 1
-                restrict: true
-            -
-              handle: bio
-              field:
-                type: textarea
-                display: 'Short Bio (optional)'
+          type: replicator
+          display: Committees
+          instructions: 'Add a section for each committee. Drag committees to reorder.'
+          collapse: accordion
+          sets:
+            main:
+              display: Committees
+              sets:
+                committee:
+                  display: Committee
+                  fields:
+                    -
+                      handle: name
+                      field:
+                        type: text
+                        display: 'Committee Name'
+                        instructions: 'For example: Executive Board, Communications, Grounds Crew.'
+                        required: true
+                        validate:
+                          - required
+                    -
+                      handle: description
+                      field:
+                        type: textarea
+                        display: 'Short Description (optional)'
+                        instructions: 'A one- or two-sentence summary of what this committee does.'
+                    -
+                      handle: responsibilities
+                      field:
+                        type: markdown
+                        display: 'Responsibilities (optional)'
+                        instructions: 'What this committee is responsible for. Use a bulleted list if you like.'
+                        container: images
+                    -
+                      handle: how_to_join
+                      field:
+                        type: markdown
+                        display: 'How to Join (optional)'
+                        instructions: 'How a resident can join this committee. Include a contact email or link if helpful.'
+                        container: images
+                    -
+                      handle: members
+                      field:
+                        type: grid
+                        display: Members
+                        instructions: 'Add a row for each member currently on this committee. Drag rows to reorder.'
+                        mode: stacked
+                        reorderable: true
+                        add_row: 'Add member'
+                        fields:
+                          -
+                            handle: name
+                            field:
+                              type: text
+                              display: Name
+                              required: true
+                              validate:
+                                - required
+                          -
+                            handle: position
+                            field:
+                              type: text
+                              display: 'Position / Role (optional)'
+                              instructions: 'For example: Chair, President, Treasurer, Block Captain.'
+                          -
+                            handle: email
+                            field:
+                              type: text
+                              input_type: email
+                              display: 'Email (optional)'
+                          -
+                            handle: photo
+                            field:
+                              type: assets
+                              display: 'Photo (optional)'
+                              container: images
+                              max_files: 1
+                              restrict: true
+                          -
+                            handle: bio
+                            field:
+                              type: textarea
+                              display: 'Short Bio (optional)'

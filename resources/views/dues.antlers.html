@@ -1,0 +1,101 @@
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <header class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-forest-600">Support your neighborhood</p>
+        <h1 class="mt-2 font-display text-4xl sm:text-5xl text-forest-900 tracking-tight text-balance">
+            {{ title }}
+        </h1>
+        {{ site_settings }}
+            {{ if dues_amount }}
+                <p class="mt-4 text-lg text-forest-800 font-medium">
+                    Annual dues: <span class="font-display text-forest-900">{{ dues_amount }}</span>
+                </p>
+            {{ /if }}
+        {{ /site_settings }}
+        {{ if content }}
+            <div class="mt-4 text-lg text-ink-700 leading-relaxed text-pretty">
+                {{ content }}
+            </div>
+        {{ /if }}
+    </header>
+
+    {{ site_settings }}
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+
+            {{# Online payment option #}}
+            {{ if dues_url }}
+                <article class="bg-white rounded-2xl border border-cream-200 shadow-sm p-8 flex flex-col">
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-amber-500/15 text-amber-700">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2.5" y="6" width="19" height="13" rx="2"/>
+                                <path d="M2.5 10h19"/>
+                                <path d="M6 15h4"/>
+                            </svg>
+                        </span>
+                        <h2 class="font-display text-2xl text-forest-900">Pay Online</h2>
+                    </div>
+                    <p class="mt-4 text-ink-700 leading-relaxed">
+                        Fastest and easiest. Pay securely through our online payment link — takes about a minute.
+                    </p>
+                    <div class="mt-6">
+                        <a href="{{ dues_url }}" rel="noopener" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-sm transition-colors">
+                            Pay Dues Online
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            {{ /if }}
+
+            {{# Cash / Check option #}}
+            {{ if dues_check_payable_to || mailing_address }}
+                <article class="bg-white rounded-2xl border border-cream-200 shadow-sm p-8 flex flex-col">
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-forest-100 text-forest-700">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 8l9-5 9 5v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/>
+                                <path d="M7 13h10"/>
+                            </svg>
+                        </span>
+                        <h2 class="font-display text-2xl text-forest-900">Pay by Cash or Check</h2>
+                    </div>
+                    <p class="mt-4 text-ink-700 leading-relaxed">
+                        Prefer to pay in person or by mail? You can drop off or mail cash or a check to the treasurer.
+                    </p>
+                    <dl class="mt-5 space-y-4 text-[15px]">
+                        {{ if dues_check_payable_to }}
+                            <div>
+                                <dt class="text-xs font-semibold uppercase tracking-wide text-forest-700">Make checks payable to</dt>
+                                <dd class="mt-1 text-ink-900 font-medium">{{ dues_check_payable_to }}</dd>
+                            </div>
+                        {{ /if }}
+                        {{ if mailing_address }}
+                            <div>
+                                <dt class="text-xs font-semibold uppercase tracking-wide text-forest-700">Mail or drop off to</dt>
+                                <dd class="mt-1 text-ink-900 whitespace-pre-line">{{ mailing_address }}</dd>
+                            </div>
+                        {{ /if }}
+                    </dl>
+                </article>
+            {{ /if }}
+
+        </div>
+
+        {{ if dues_notes }}
+            <aside class="mt-10 p-6 rounded-2xl bg-cream-100/70 border border-cream-200">
+                <p class="text-sm font-semibold uppercase tracking-wide text-forest-700">A few notes</p>
+                <div class="prose-neighborhood mt-3 text-[15px]">
+                    {{ dues_notes }}
+                </div>
+            </aside>
+        {{ /if }}
+
+        {{ if contact_email }}
+            <p class="mt-10 text-ink-700 text-[15px]">
+                Questions about dues? Email
+                <a href="mailto:{{ contact_email }}" class="text-forest-700 hover:text-forest-800 underline decoration-forest-600/30 hover:decoration-forest-600 underline-offset-4">{{ contact_email }}</a>.
+            </p>
+        {{ /if }}
+    {{ /site_settings }}
+</section>

@@ -32,6 +32,38 @@ sections:
           time_enabled: true
           time_required: false
       -
+        handle: recurrence
+        field:
+          type: select
+          display: Repeats
+          instructions: 'Set this if the event happens on a regular schedule. The event will show automatically on each upcoming occurrence.'
+          default: none
+          clearable: false
+          options:
+            none: 'Does not repeat'
+            weekly: Weekly
+            monthly: Monthly
+            yearly: Yearly
+      -
+        handle: recurrence_interval
+        field:
+          type: integer
+          display: 'Repeat every'
+          instructions: 'How many weeks / months / years between occurrences. For example, "2" for every other week. Leave as 1 for every week / month / year.'
+          default: 1
+          min: 1
+          if:
+            recurrence: 'not none'
+      -
+        handle: recurrence_until
+        field:
+          type: date
+          display: 'Repeat until (optional)'
+          instructions: 'The last date this event should recur. Leave blank if it continues indefinitely.'
+          time_enabled: false
+          if:
+            recurrence: 'not none'
+      -
         handle: location
         field:
           type: text
