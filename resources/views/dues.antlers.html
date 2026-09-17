@@ -58,10 +58,10 @@
                                 <path d="M7 13h10"/>
                             </svg>
                         </span>
-                        <h2 class="font-display text-2xl text-forest-900">Pay by Check</h2>
+                        <h2 class="font-display text-2xl text-forest-900">{{ dues_check_heading ?? 'Pay by Check' }}</h2>
                     </div>
                     <p class="mt-4 text-ink-700 leading-relaxed">
-                        Prefer to pay in person or by mail? You can drop off or mail cash or a check to the treasurer.
+                        {{ dues_check_description ?? 'Prefer to pay in person or by mail? You can drop off or mail cash or a check to the treasurer.' }}
                     </p>
                     <dl class="mt-5 space-y-4 text-[15px]">
                         {{ if dues_check_payable_to }}
