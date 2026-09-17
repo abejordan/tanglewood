@@ -26,13 +26,14 @@
         </div>
 
         <h2 class="font-display text-2xl text-forest-800 mb-6 mt-12">Past</h2>
-        <div class="grid">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {{ collection:events sort="date:desc" date:is_before="{now}" }}
-                {{ partial:partials/past_event_card }}
                 {{ if no_results }}
                     <div class="sm:col-span-2 lg:col-span-3 p-8 bg-white rounded-2xl border border-cream-200 text-center">
                         <p class="text-ink-700">No past events found.</p>
                     </div>
+                {{ else }}
+                    {{ partial:partials/past_event_card }}
                 {{ /if }}
             {{ /collection:events }}
         </div>

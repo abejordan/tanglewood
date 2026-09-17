@@ -27,7 +27,8 @@ class EventsUpcoming extends Tags
         $occurrences = [];
 
         foreach ($entries as $entry) {
-            $start = $this->parseDate($entry->value('date'));
+            // Events is a dated collection; the entry's date lives in the filename, not the "date" frontmatter field.
+            $start = $this->parseDate($entry->date());
             if (!$start) {
                 continue;
             }
@@ -56,16 +57,13 @@ class EventsUpcoming extends Tags
                 $guard++;
             }
 
-            $guard = 0;
-            while ($cursor->lte($windowEnd) && (!$until || $cursor->lte($until)) && $guard < 500) {
+            // Only surface the next upcoming occurrence; the card's "Repeats" badge conveys the ongoing pattern.
+            if ($cursor->lte($windowEnd) && (!$until || $cursor->lte($until))) {
                 $occurrenceEnd = $duration !== null
                     ? $cursor->copy()->addSeconds($duration)
                     : null;
 
                 $occurrences[] = $this->buildOccurrence($entry, $cursor->copy(), $occurrenceEnd, true);
-
-                $cursor = $this->advance($cursor, $recurrence, $interval);
-                $guard++;
             }
         }
 
@@ -95,11 +93,13 @@ class EventsUpcoming extends Tags
         if (!$value) {
             return null;
         }
+        // Normalize every date into the app timezone so display formatting matches what editors enter in the CP.
+        $tz = config('app.timezone') ?: 'UTC';
         if ($value instanceof Carbon) {
-            return $value->copy();
+            return $value->copy()->setTimezone($tz);
         }
         try {
-            return Carbon::parse((string) $value);
+            return Carbon::parse((string) $value)->setTimezone($tz);
         } catch (\Throwable $e) {
             return null;
         }
@@ -117,7 +117,81 @@ class EventsUpcoming extends Tags
             : null;
         $data['sort_ts'] = $start->getTimestamp();
 
+        $title = (string) $entry->value('title');
+        $location = (string) ($entry->value('location') ?: '');
+        $description = trim(strip_tags((string) ($entry->value('description') ?: '')));
+        $isAllDay = $start->format('H:i:s') === '00:00:00';
+
+        $data['gcal_url'] = $this->googleCalendarUrl($title, $description, $location, $start, $end, $isAllDay);
+        $data['ics_url'] = $this->icsDataUri($entry, $title, $description, $location, $start, $end, $isAllDay);
+
         return $data;
+    }
+
+    protected function googleCalendarUrl(string $title, string $description, string $location, Carbon $start, ?Carbon $end, bool $isAllDay): string
+    {
+        if ($isAllDay) {
+            $endDate = $end && $end->gt($start) ? $end->copy() : $start->copy();
+            // Google Calendar treats the end date as exclusive for all-day events.
+            $dates = $start->format('Ymd') . '/' . $endDate->addDay()->format('Ymd');
+        } else {
+            $endDt = $end && $end->gt($start) ? $end : $start->copy()->addHour();
+            $dates = $start->format('Ymd\THis') . '/' . $endDt->format('Ymd\THis');
+        }
+
+        $params = http_build_query([
+            'action' => 'TEMPLATE',
+            'text' => $title,
+            'dates' => $dates,
+            'details' => $description,
+            'location' => $location,
+        ]);
+
+        return 'https://www.google.com/calendar/render?' . $params;
+    }
+
+    protected function icsDataUri($entry, string $title, string $description, string $location, Carbon $start, ?Carbon $end, bool $isAllDay): string
+    {
+        $escape = fn ($v) => addcslashes(str_replace(["\r\n", "\r", "\n"], '\\n', (string) $v), ",;\\");
+
+        $uid = ($entry->id() ?? 'event') . '-' . $start->getTimestamp() . '@tanglewood';
+        $dtstamp = Carbon::now('UTC')->format('Ymd\THis\Z');
+
+        if ($isAllDay) {
+            $endDate = $end && $end->gt($start) ? $end->copy() : $start->copy();
+            $dtStart = 'DTSTART;VALUE=DATE:' . $start->format('Ymd');
+            $dtEnd = 'DTEND;VALUE=DATE:' . $endDate->addDay()->format('Ymd');
+        } else {
+            $endDt = $end && $end->gt($start) ? $end : $start->copy()->addHour();
+            $dtStart = 'DTSTART:' . $start->format('Ymd\THis');
+            $dtEnd = 'DTEND:' . $endDt->format('Ymd\THis');
+        }
+
+        $lines = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Tanglewood//Events//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH',
+            'BEGIN:VEVENT',
+            'UID:' . $uid,
+            'DTSTAMP:' . $dtstamp,
+            $dtStart,
+            $dtEnd,
+            'SUMMARY:' . $escape($title),
+        ];
+        if ($description !== '') {
+            $lines[] = 'DESCRIPTION:' . $escape($description);
+        }
+        if ($location !== '') {
+            $lines[] = 'LOCATION:' . $escape($location);
+        }
+        $lines[] = 'END:VEVENT';
+        $lines[] = 'END:VCALENDAR';
+
+        $ics = implode("\r\n", $lines) . "\r\n";
+
+        return 'data:text/calendar;charset=utf-8,' . rawurlencode($ics);
     }
 
     protected function recurrenceLabel(?string $recurrence, int $interval): string
