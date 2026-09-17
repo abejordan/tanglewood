@@ -73,6 +73,18 @@ sections:
           display: '"Pay Online" Button Label'
           instructions: 'Label for the Pay Online button. Leave blank to use the default ("Pay Dues Online").'
       -
+        handle: dues_check_heading
+        field:
+          type: text
+          display: '"Pay by Check" Heading'
+          instructions: 'Heading shown on the Pay by Check card. Leave blank to use the default ("Pay by Check").'
+      -
+        handle: dues_check_description
+        field:
+          type: textarea
+          display: '"Pay by Check" Description'
+          instructions: 'Short paragraph shown under the Pay by Check heading. Leave blank to use the default copy.'
+      -
         handle: dues_check_payable_to
         field:
           type: text
@@ -100,3 +112,9 @@ sections:
           type: text
           input_type: url
           display: 'Nextdoor URL'
+      -
+        handle: instagram_url
+        field:
+          type: text
+          input_type: url
+          display: 'Instagram URL'
