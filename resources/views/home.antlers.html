@@ -23,14 +23,14 @@
             {{ /if }}
 
             <div class="mt-8 flex flex-wrap gap-3">
-                <a href="/newsletters" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-forest-700 hover:bg-forest-800 text-white font-medium shadow-sm transition-colors">
-                    View Latest Newsletter
+                <a href="{{ hero_newsletter_button:url ?? '/newsletters' }}" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-forest-700 hover:bg-forest-800 text-white font-medium shadow-sm transition-colors">
+                    {{ hero_newsletter_button:label ?? 'View Latest Newsletter' }}
                 </a>
-                <a href="/events" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-white hover:bg-cream-100 text-forest-800 font-medium border border-cream-200 shadow-sm transition-colors">
-                    View Upcoming Events
+                <a href="{{ hero_events_button:url ?? '/events' }}" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-white hover:bg-cream-100 text-forest-800 font-medium border border-cream-200 shadow-sm transition-colors">
+                    {{ hero_events_button:label ?? 'View Upcoming Events' }}
                 </a>
-                <a href="/dues" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-sm transition-colors">
-                    Pay Dues
+                <a href="{{ hero_dues_button:url ?? '/dues' }}" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-sm transition-colors">
+                    {{ hero_dues_button:label ?? 'Pay Dues' }}
                 </a>
             </div>
         </div>
@@ -109,8 +109,8 @@
             </p>
         {{ /if }}
         <div class="mt-8">
-            <a href="/get-involved" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-forest-700 hover:bg-forest-800 text-white font-medium shadow-sm transition-colors">
-                Learn how to get involved
+            <a href="{{ get_involved_button:url ?? '/get-involved' }}" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-lg bg-forest-700 hover:bg-forest-800 text-white font-medium shadow-sm transition-colors">
+                {{ get_involved_button:label ?? 'Learn how to get involved' }}
             </a>
         </div>
     </div>
@@ -129,8 +129,8 @@
             </p>
         {{ /if }}
         <div class="mt-8">
-            <a href="/dues" class="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-lg transition-colors text-lg">
-                See Payment Options
+            <a href="{{ pay_dues_button:url ?? '/dues' }}" class="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-lg transition-colors text-lg">
+                {{ pay_dues_button:label ?? 'See Payment Options' }}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
