@@ -11,5 +11,8 @@ pay_dues_text: |-
   Your dues help cover neighborhood maintenance, winter snow plowing, common area upkeep, and community events.
   You can pay via PayPal or check.
 updated_by: 4a7e6f05-2c1a-4df2-8f5e-879839082c20
-updated_at: 1789662598
+updated_at: 1789671309
+get_involved_button:
+  label: 'Get Involved'
+  url: 'https://tanglewoodindy.com/get-involved'
 ---
