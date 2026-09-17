@@ -54,7 +54,6 @@ committees:
       - Plan and run neighborhood events
       - Coordinate opportunities for grants and city support
       - Support neighborhood access to the Nickel Plate Trail
-    how_to_join: "Email the board and let us know you'd like to help. Even helping with one event makes a difference."
     members:
       -
         id: o7ez0GhoI8-hUTgOdiBzr
@@ -70,7 +69,6 @@ committees:
       - Manage social media and the website
       - Take photos at events
       - Share event reminders and important updates
-    how_to_join: "If you enjoy writing, photography, or social media, we'd love your help. Email the board."
     members:
       -
         id: ceApjlUE
@@ -85,7 +83,6 @@ committees:
       - Maintain the neighborhood entrance and common areas
       - Coordinate seasonal cleanups and plantings
       - Recommend improvements to shared spaces
-    how_to_join: "A few hours a season is all it takes. Email the board if you'd like to pitch in."
     members:
       -
         id: W3rdlDGyH3Wyi6IDmZM_w
@@ -106,14 +103,13 @@ committees:
       - Welcome new residents to the neighborhood
       - Encourage participation in events and committees
       - Assist the treasurer with managing neighborhood funds
-    how_to_join: 'If you like meeting neighbors and helping people feel at home, this is a great fit. Email the board.'
     members:
       -
-        id: UbXa6r_HOD1VAj8Rt_LTy
-        name: 'Danielle Jennings'
+        id: y3JHP8BY4Bzs3MkHoGhCq
+        name: 'Mike Evans'
       -
         id: uU0edQR_YH8Ad03CQxEDd
         name: 'David Wene'
       -
-        id: y3JHP8BY4Bzs3MkHoGhCq
-        name: 'Mike Evans'
+        id: UbXa6r_HOD1VAj8Rt_LTy
+        name: 'Danielle Jennings'
