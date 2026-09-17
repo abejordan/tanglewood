@@ -24,6 +24,33 @@ sections:
           type: textarea
           display: 'Welcome Intro'
           instructions: 'A short, friendly paragraph introducing the neighborhood.'
+      -
+        handle: hero_newsletter_button
+        field:
+          type: group
+          display: 'Newsletter Button'
+          instructions: 'Button linking to the newsletter page.'
+          fields:
+            -
+              import: button
+      -
+        handle: hero_events_button
+        field:
+          type: group
+          display: 'Events Button'
+          instructions: 'Button linking to the events page.'
+          fields:
+            -
+              import: button
+      -
+        handle: hero_dues_button
+        field:
+          type: group
+          display: 'Dues Button'
+          instructions: 'Button linking to the dues page.'
+          fields:
+            -
+              import: button
   get_involved:
     display: 'Get Involved Section'
     fields:
@@ -38,6 +65,14 @@ sections:
           type: textarea
           display: 'Short Description'
           instructions: 'A sentence or two encouraging residents to participate.'
+      -
+        handle: get_involved_button
+        field:
+          type: group
+          display: 'Button'
+          fields:
+            -
+              import: button
   pay_dues:
     display: 'Pay Dues Section'
     fields:
@@ -52,6 +87,14 @@ sections:
           type: textarea
           display: 'Short Description'
           instructions: 'A sentence or two about paying dues online. The link itself is set in Site Settings.'
+      -
+        handle: pay_dues_button
+        field:
+          type: group
+          display: 'Button'
+          fields:
+            -
+              import: button
   seo:
     display: SEO
     fields:

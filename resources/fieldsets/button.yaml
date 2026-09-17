@@ -1,0 +1,14 @@
+title: Button
+fields:
+  -
+    handle: label
+    field:
+      type: text
+      display: 'Button Label'
+      instructions: 'Text shown on the button. Leave blank to hide this button.'
+  -
+    handle: url
+    field:
+      type: text
+      display: 'Button URL'
+      instructions: 'Where the button links to. Use a relative path (like /dues) or a full URL (like https://example.com).'
