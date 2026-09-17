@@ -1,84 +1,97 @@
 title: 'Site Settings'
-sections:
+tabs:
   main:
     display: 'Neighborhood Info'
-    fields:
+    sections:
       -
-        handle: name
-        field:
-          type: text
-          display: 'Neighborhood Name'
-          instructions: 'Shown in the header, footer, and page titles.'
-          required: true
-          validate:
-            - required
-      -
-        handle: tagline
-        field:
-          type: text
-          display: 'Short Tagline / Description'
-          instructions: 'A brief description used in search results and social sharing.'
-      -
-        handle: footer_text
-        field:
-          type: textarea
-          display: 'Footer Text'
-          instructions: 'Shown at the bottom of every page.'
+        fields:
+          -
+            handle: name
+            field:
+              type: text
+              display: 'Neighborhood Name'
+              instructions: 'Shown in the header, footer, and page titles.'
+              validate:
+                - required
+          -
+            handle: tagline
+            field:
+              type: text
+              display: 'Short Tagline / Description'
+              instructions: 'A brief description used in search results and social sharing.'
+          -
+            handle: footer_text
+            field:
+              type: textarea
+              display: 'Footer Text'
+              instructions: 'Shown at the bottom of every page.'
   contact:
     display: Contact
-    fields:
+    sections:
       -
-        handle: contact_email
-        field:
-          type: text
-          input_type: email
-          display: 'Contact Email'
-      -
-        handle: mailing_address
-        field:
-          type: textarea
-          display: 'Mailing Address (optional)'
+        fields:
+          -
+            handle: contact_email
+            field:
+              type: text
+              input_type: email
+              display: 'Contact Email'
+          -
+            handle: mailing_address
+            field:
+              type: textarea
+              display: 'Mailing Address (optional)'
   dues:
     display: 'Dues Payment'
-    fields:
+    sections:
       -
-        handle: dues_amount
-        field:
-          type: text
-          display: 'Annual Dues Amount (optional)'
-          instructions: 'For example: "$50" or "$50 per household". Shown on the Dues page.'
-      -
-        handle: dues_url
-        field:
-          type: text
-          input_type: url
-          display: 'Online Payment URL'
-          instructions: 'PayPal, Venmo, or other online payment link. Used on the "Pay Online" button on the Dues page.'
-      -
-        handle: dues_check_payable_to
-        field:
-          type: text
-          display: 'Make Checks Payable To (optional)'
-          instructions: 'The name that should appear on the "Pay to the order of" line. For example: "Tanglewood Neighborhood Association".'
-      -
-        handle: dues_notes
-        field:
-          type: markdown
-          display: 'Additional Notes (optional)'
-          instructions: 'Anything else residents should know when paying dues (deadlines, questions, etc.).'
-          container: images
+        fields:
+          -
+            handle: dues_amount
+            field:
+              type: text
+              display: 'Annual Dues Amount (optional)'
+              instructions: 'For example: "$50" or "$50 per household". Shown on the Dues page.'
+          -
+            handle: dues_url
+            field:
+              type: text
+              input_type: url
+              display: 'Online Payment URL'
+              instructions: 'PayPal, Venmo, or other online payment link. Used on the "Pay Online" button on the Dues page.'
+          -
+            handle: dues_check_payable_to
+            field:
+              type: text
+              display: 'Make Checks Payable To (optional)'
+              instructions: 'The name that should appear on the "Pay to the order of" line. For example: "Tanglewood Neighborhood Association".'
+          -
+            handle: dues_notes
+            field:
+              type: markdown
+              display: 'Additional Notes (optional)'
+              instructions: 'Anything else residents should know when paying dues (deadlines, questions, etc.).'
+              container: images
   social:
     display: 'Social Links (optional)'
-    fields:
+    sections:
       -
-        handle: facebook_url
-        field:
-          type: text
-          input_type: url
-          display: 'Facebook URL'
-      -
-        handle: nextdoor_url
-        field:
-          type: text
-          input_type: url
-          display: 'Nextdoor URL'
+        fields:
+          -
+            handle: facebook_url
+            field:
+              type: text
+              input_type: url
+              display: 'Facebook URL'
+          -
+            handle: nextdoor_url
+            field:
+              type: text
+              input_type: url
+              display: 'Nextdoor URL'
+          -
+            handle: instagram_url
+            field:
+              type: text
+              input_type: url
+              display: 'Instagram URL'
